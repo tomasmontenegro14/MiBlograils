@@ -1,0 +1,18 @@
+<h1>Lista de Articulos</h1>
+<br/>
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Texto</th>
+  </tr>
+  <% @articulos.each do |articuloit|%>
+    <tr>
+      <td> <%= articuloit.titulo %> </td>
+      <td> <%= articuloit.texto %> </td>
+      <td> <%= link_to 'Ver', articulo_path(articuloit) %> </td>
+      <td><%= link_to 'Editar', edit_articulo_path(articuloit) %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+<%= link_to 'Nuevo articulo', new_articulo_path %>

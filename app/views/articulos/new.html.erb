@@ -1,0 +1,39 @@
+
+<h1>Nuevo Articulo</h1>
+
+
+<%= form_with scope: :articulo, url: articulos_path, local: true do |form| %>
+  <p>
+    <%= form.label :titulo %><br>
+    <%= form.text_field :titulo %>
+  </p>
+
+  <p>
+    <%= form.label :Texto %><br>
+    <%= form.text_area :texto %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<% if @articulo.errors.any? %>
+ <div id="error_explanation">
+   <h2>
+     <%= pluralize( @articulo.errors.count, "error") %> prohibido este articulo de
+     ser guardado:
+     <ul>
+       <% @articulo.errors.full_messages.each do |msj| %>
+        <li><%= msj %></li>
+       <%
+       end
+       %>
+     </ul>
+   </h2>
+ </div>
+<%
+end
+%>
+
+<%= link_to 'Regresar', articulos_path %>
